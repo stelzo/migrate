@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	st "github.com/golang-migrate/migrate/v4/source/testing"
+	st "github.com/stelzo/migrate/v4/source/testing"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -35,7 +35,7 @@ func Test(t *testing.T) {
 
 func TestDefaultClient(t *testing.T) {
 	g := &Github{}
-	owner := "golang-migrate"
+	owner := "stelzo"
 	repo := "migrate"
 	path := "source/github/examples/migrations"
 

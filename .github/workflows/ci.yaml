@@ -56,9 +56,9 @@ jobs:
     environment: GoReleaser
     # This job only runs when
     # 1. When the previous `lint` and `test` jobs has completed successfully
-    # 2. When the repository is not a fork, i.e. it will only run on the official golang-migrate/migrate
+    # 2. When the repository is not a fork, i.e. it will only run on the official stelzo/migrate
     # 3. When the workflow is triggered by a tag with `v` prefix
-    if: ${{ success() && github.repository == 'golang-migrate/migrate' && startsWith(github.ref, 'refs/tags/v') }}
+    if: ${{ success() && github.repository == 'stelzo/migrate' && startsWith(github.ref, 'refs/tags/v') }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -88,24 +88,24 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: gem install package_cloud
-      - run: package_cloud push golang-migrate/migrate/ubuntu/bionic dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/ubuntu/bionic dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/ubuntu/focal dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/ubuntu/focal dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/ubuntu/jammy dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/ubuntu/jammy dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/ubuntu/noble dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/ubuntu/noble dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/debian/buster dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/debian/buster dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/debian/bullseye dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/debian/bullseye dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
-      - run: package_cloud push golang-migrate/migrate/debian/bookworm dist/migrate.linux-amd64.deb
+      - run: package_cloud push stelzo/migrate/debian/bookworm dist/migrate.linux-amd64.deb
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}

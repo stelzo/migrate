@@ -7,7 +7,7 @@
 |------------|---------------------|-------------|
 | `x-migrations-table` | `MigrationsTable` | Name of the migrations table |
 | `username` | |  enter the SQL Server Authentication user id or the Windows Authentication user id in the DOMAIN\User format. On Windows, if user id is empty or missing Single-Sign-On is used. |
-| `password` | | The user's password. | 
+| `password` | | The user's password. |
 | `host` | | The host to connect to. |
 | `port` | | The port to connect to. |
 | `instance` | | SQL Server instance name. |
@@ -24,10 +24,10 @@ See https://github.com/microsoft/go-mssqldb for full parameter list.
 
 ### Which go-mssqldb driver to us?
 
-Please note that the deprecated `mssql` driver is not supported. Please use the newer `sqlserver` driver.  
+Please note that the deprecated `mssql` driver is not supported. Please use the newer `sqlserver` driver.
 See https://github.com/microsoft/go-mssqldb#deprecated for more information.
 
 ### Official Support by migrate
 
 Versions of MS SQL Server 2019 newer than CTP3.1 are not officially supported since there are issues testing against the Docker image.
-For more info, see: https://github.com/golang-migrate/migrate/issues/160#issuecomment-522433269
+For more info, see: https://github.com/stelzo/migrate/issues/160#issuecomment-522433269

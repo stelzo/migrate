@@ -9,11 +9,11 @@ import (
 
 	"go.uber.org/atomic"
 
-	"github.com/golang-migrate/migrate/v4"
-	"github.com/golang-migrate/migrate/v4/database"
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/rqlite/gorqlite"
+	"github.com/stelzo/migrate/v4"
+	"github.com/stelzo/migrate/v4/database"
 )
 
 func init() {
@@ -187,7 +187,7 @@ func (r *Rqlite) SetVersion(version int, dirty bool) error {
 
 	// Also re-write the schema version for nil dirty versions to prevent
 	// empty schema version for failed down migration on the first migration
-	// See: https://github.com/golang-migrate/migrate/issues/330
+	// See: https://github.com/stelzo/migrate/issues/330
 	insertQuery := fmt.Sprintf(`INSERT INTO %s (version, dirty) VALUES (?, ?)`, r.config.MigrationsTable)
 	if version >= 0 || (version == database.NilVersion && dirty) {
 		statements = append(statements, gorqlite.ParameterizedStatement{
